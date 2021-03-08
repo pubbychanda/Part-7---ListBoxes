@@ -29,10 +29,10 @@ namespace Part_7___ListBoxes
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstNumbers = new System.Windows.Forms.ListBox();
             this.lstHeroes = new System.Windows.Forms.ListBox();
+            this.lstNumbers = new System.Windows.Forms.ListBox();
             this.btnNewNumbers = new System.Windows.Forms.Button();
-            this.btnSortNumbers = new System.Windows.Forms.Button();
+            this.btnSortAscending = new System.Windows.Forms.Button();
             this.btnNewHeroes = new System.Windows.Forms.Button();
             this.btnSortHeroes = new System.Windows.Forms.Button();
             this.btnRemoveNumber = new System.Windows.Forms.Button();
@@ -47,23 +47,26 @@ namespace Part_7___ListBoxes
             this.lblNameAdder = new System.Windows.Forms.Label();
             this.lblNameRemover = new System.Windows.Forms.Label();
             this.lblNumberRemove = new System.Windows.Forms.Label();
+            this.btnLower = new System.Windows.Forms.Button();
+            this.btnSortDescending = new System.Windows.Forms.Button();
+            this.btnUpper = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // lstNumbers
-            // 
-            this.lstNumbers.FormattingEnabled = true;
-            this.lstNumbers.Location = new System.Drawing.Point(222, 88);
-            this.lstNumbers.Name = "lstNumbers";
-            this.lstNumbers.Size = new System.Drawing.Size(181, 108);
-            this.lstNumbers.TabIndex = 0;
             // 
             // lstHeroes
             // 
             this.lstHeroes.FormattingEnabled = true;
-            this.lstHeroes.Location = new System.Drawing.Point(12, 88);
+            this.lstHeroes.Location = new System.Drawing.Point(222, 112);
             this.lstHeroes.Name = "lstHeroes";
             this.lstHeroes.Size = new System.Drawing.Size(181, 108);
-            this.lstHeroes.TabIndex = 1;
+            this.lstHeroes.TabIndex = 0;
+            // 
+            // lstNumbers
+            // 
+            this.lstNumbers.FormattingEnabled = true;
+            this.lstNumbers.Location = new System.Drawing.Point(12, 112);
+            this.lstNumbers.Name = "lstNumbers";
+            this.lstNumbers.Size = new System.Drawing.Size(181, 108);
+            this.lstNumbers.TabIndex = 1;
             // 
             // btnNewNumbers
             // 
@@ -71,21 +74,23 @@ namespace Part_7___ListBoxes
             this.btnNewNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btnNewNumbers.Location = new System.Drawing.Point(12, 59);
             this.btnNewNumbers.Name = "btnNewNumbers";
-            this.btnNewNumbers.Size = new System.Drawing.Size(80, 23);
+            this.btnNewNumbers.Size = new System.Drawing.Size(60, 23);
             this.btnNewNumbers.TabIndex = 2;
             this.btnNewNumbers.Text = "New List";
             this.btnNewNumbers.UseVisualStyleBackColor = false;
+            this.btnNewNumbers.Click += new System.EventHandler(this.btnNewNumbers_Click);
             // 
-            // btnSortNumbers
+            // btnSortAscending
             // 
-            this.btnSortNumbers.BackColor = System.Drawing.Color.Yellow;
-            this.btnSortNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnSortNumbers.Location = new System.Drawing.Point(100, 59);
-            this.btnSortNumbers.Name = "btnSortNumbers";
-            this.btnSortNumbers.Size = new System.Drawing.Size(93, 23);
-            this.btnSortNumbers.TabIndex = 3;
-            this.btnSortNumbers.Text = "Sort";
-            this.btnSortNumbers.UseVisualStyleBackColor = false;
+            this.btnSortAscending.BackColor = System.Drawing.Color.Yellow;
+            this.btnSortAscending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnSortAscending.Location = new System.Drawing.Point(78, 59);
+            this.btnSortAscending.Name = "btnSortAscending";
+            this.btnSortAscending.Size = new System.Drawing.Size(115, 23);
+            this.btnSortAscending.TabIndex = 3;
+            this.btnSortAscending.Text = "Sort Ascending";
+            this.btnSortAscending.UseVisualStyleBackColor = false;
+            this.btnSortAscending.Click += new System.EventHandler(this.btnSortNumbers_Click);
             // 
             // btnNewHeroes
             // 
@@ -97,45 +102,49 @@ namespace Part_7___ListBoxes
             this.btnNewHeroes.TabIndex = 4;
             this.btnNewHeroes.Text = "New List";
             this.btnNewHeroes.UseVisualStyleBackColor = false;
+            this.btnNewHeroes.Click += new System.EventHandler(this.btnNewHeroes_Click);
             // 
             // btnSortHeroes
             // 
             this.btnSortHeroes.BackColor = System.Drawing.Color.Yellow;
             this.btnSortHeroes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnSortHeroes.Location = new System.Drawing.Point(314, 59);
+            this.btnSortHeroes.Location = new System.Drawing.Point(222, 83);
             this.btnSortHeroes.Name = "btnSortHeroes";
-            this.btnSortHeroes.Size = new System.Drawing.Size(89, 23);
+            this.btnSortHeroes.Size = new System.Drawing.Size(86, 23);
             this.btnSortHeroes.TabIndex = 5;
-            this.btnSortHeroes.Text = "Sort";
+            this.btnSortHeroes.Text = "Sort Alpha";
             this.btnSortHeroes.UseVisualStyleBackColor = false;
+            this.btnSortHeroes.Click += new System.EventHandler(this.btnSortHeroes_Click);
             // 
             // btnRemoveNumber
             // 
             this.btnRemoveNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRemoveNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRemoveNumber.Location = new System.Drawing.Point(12, 226);
+            this.btnRemoveNumber.Location = new System.Drawing.Point(12, 241);
             this.btnRemoveNumber.Name = "btnRemoveNumber";
             this.btnRemoveNumber.Size = new System.Drawing.Size(60, 22);
             this.btnRemoveNumber.TabIndex = 6;
             this.btnRemoveNumber.Text = "Remove";
             this.btnRemoveNumber.UseVisualStyleBackColor = false;
+            this.btnRemoveNumber.Click += new System.EventHandler(this.btnRemoveNumber_Click);
             // 
             // btnRemoveAllNumbers
             // 
-            this.btnRemoveAllNumbers.BackColor = System.Drawing.Color.Maroon;
-            this.btnRemoveAllNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRemoveAllNumbers.Location = new System.Drawing.Point(78, 226);
+            this.btnRemoveAllNumbers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnRemoveAllNumbers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnRemoveAllNumbers.Location = new System.Drawing.Point(78, 241);
             this.btnRemoveAllNumbers.Name = "btnRemoveAllNumbers";
             this.btnRemoveAllNumbers.Size = new System.Drawing.Size(115, 23);
             this.btnRemoveAllNumbers.TabIndex = 7;
             this.btnRemoveAllNumbers.Text = "Remove All";
             this.btnRemoveAllNumbers.UseVisualStyleBackColor = false;
+            this.btnRemoveAllNumbers.Click += new System.EventHandler(this.btnRemoveAllNumbers_Click);
             // 
             // btnAddHero
             // 
             this.btnAddHero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnAddHero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnAddHero.Location = new System.Drawing.Point(351, 225);
+            this.btnAddHero.Location = new System.Drawing.Point(351, 243);
             this.btnAddHero.Name = "btnAddHero";
             this.btnAddHero.Size = new System.Drawing.Size(50, 21);
             this.btnAddHero.TabIndex = 8;
@@ -147,34 +156,34 @@ namespace Part_7___ListBoxes
             // 
             this.btnRemoveHero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnRemoveHero.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnRemoveHero.Location = new System.Drawing.Point(326, 290);
+            this.btnRemoveHero.Location = new System.Drawing.Point(326, 285);
             this.btnRemoveHero.Name = "btnRemoveHero";
             this.btnRemoveHero.Size = new System.Drawing.Size(75, 21);
             this.btnRemoveHero.TabIndex = 9;
             this.btnRemoveHero.Text = "Remove";
             this.btnRemoveHero.UseVisualStyleBackColor = false;
+            this.btnRemoveHero.Click += new System.EventHandler(this.btnRemoveHero_Click);
             // 
             // txtAddHero
             // 
-            this.txtAddHero.Location = new System.Drawing.Point(220, 226);
+            this.txtAddHero.Location = new System.Drawing.Point(220, 243);
             this.txtAddHero.Name = "txtAddHero";
             this.txtAddHero.Size = new System.Drawing.Size(125, 20);
             this.txtAddHero.TabIndex = 10;
             // 
             // txtRemoveHero
             // 
-            this.txtRemoveHero.Location = new System.Drawing.Point(220, 291);
+            this.txtRemoveHero.Location = new System.Drawing.Point(220, 285);
             this.txtRemoveHero.Name = "txtRemoveHero";
             this.txtRemoveHero.Size = new System.Drawing.Size(100, 20);
             this.txtRemoveHero.TabIndex = 11;
             // 
             // lblStatus
             // 
-            this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(9, 259);
+            this.lblStatus.Location = new System.Drawing.Point(9, 267);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(51, 16);
+            this.lblStatus.Size = new System.Drawing.Size(184, 39);
             this.lblStatus.TabIndex = 12;
             this.lblStatus.Text = "Status: ";
             // 
@@ -202,7 +211,7 @@ namespace Part_7___ListBoxes
             // 
             this.lblNameAdder.AutoSize = true;
             this.lblNameAdder.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameAdder.Location = new System.Drawing.Point(219, 199);
+            this.lblNameAdder.Location = new System.Drawing.Point(219, 223);
             this.lblNameAdder.Name = "lblNameAdder";
             this.lblNameAdder.Size = new System.Drawing.Size(145, 15);
             this.lblNameAdder.TabIndex = 15;
@@ -212,7 +221,7 @@ namespace Part_7___ListBoxes
             // 
             this.lblNameRemover.AutoSize = true;
             this.lblNameRemover.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameRemover.Location = new System.Drawing.Point(217, 259);
+            this.lblNameRemover.Location = new System.Drawing.Point(217, 267);
             this.lblNameRemover.Name = "lblNameRemover";
             this.lblNameRemover.Size = new System.Drawing.Size(168, 15);
             this.lblNameRemover.TabIndex = 16;
@@ -222,17 +231,53 @@ namespace Part_7___ListBoxes
             // 
             this.lblNumberRemove.AutoSize = true;
             this.lblNumberRemove.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberRemove.Location = new System.Drawing.Point(11, 199);
+            this.lblNumberRemove.Location = new System.Drawing.Point(11, 223);
             this.lblNumberRemove.Name = "lblNumberRemove";
             this.lblNumberRemove.Size = new System.Drawing.Size(146, 15);
             this.lblNumberRemove.TabIndex = 17;
             this.lblNumberRemove.Text = "Select a number to remove";
             // 
+            // btnLower
+            // 
+            this.btnLower.BackColor = System.Drawing.Color.Yellow;
+            this.btnLower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnLower.Location = new System.Drawing.Point(314, 83);
+            this.btnLower.Name = "btnLower";
+            this.btnLower.Size = new System.Drawing.Size(89, 23);
+            this.btnLower.TabIndex = 18;
+            this.btnLower.Text = "lower case";
+            this.btnLower.UseVisualStyleBackColor = false;
+            // 
+            // btnSortDescending
+            // 
+            this.btnSortDescending.BackColor = System.Drawing.Color.Yellow;
+            this.btnSortDescending.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnSortDescending.Location = new System.Drawing.Point(78, 83);
+            this.btnSortDescending.Name = "btnSortDescending";
+            this.btnSortDescending.Size = new System.Drawing.Size(115, 23);
+            this.btnSortDescending.TabIndex = 19;
+            this.btnSortDescending.Text = "Sort Descending ";
+            this.btnSortDescending.UseVisualStyleBackColor = false;
+            // 
+            // btnUpper
+            // 
+            this.btnUpper.BackColor = System.Drawing.Color.Yellow;
+            this.btnUpper.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnUpper.Location = new System.Drawing.Point(314, 59);
+            this.btnUpper.Name = "btnUpper";
+            this.btnUpper.Size = new System.Drawing.Size(89, 23);
+            this.btnUpper.TabIndex = 20;
+            this.btnUpper.Text = "UPPER case";
+            this.btnUpper.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 334);
+            this.ClientSize = new System.Drawing.Size(416, 344);
+            this.Controls.Add(this.btnUpper);
+            this.Controls.Add(this.btnSortDescending);
+            this.Controls.Add(this.btnLower);
             this.Controls.Add(this.lblNumberRemove);
             this.Controls.Add(this.lblNameRemover);
             this.Controls.Add(this.lblNameAdder);
@@ -247,12 +292,12 @@ namespace Part_7___ListBoxes
             this.Controls.Add(this.btnRemoveNumber);
             this.Controls.Add(this.btnSortHeroes);
             this.Controls.Add(this.btnNewHeroes);
-            this.Controls.Add(this.btnSortNumbers);
+            this.Controls.Add(this.btnSortAscending);
             this.Controls.Add(this.btnNewNumbers);
-            this.Controls.Add(this.lstHeroes);
             this.Controls.Add(this.lstNumbers);
+            this.Controls.Add(this.lstHeroes);
             this.Name = "Form1";
-            this.Text = "Using Lists";
+            this.Text = "List Boxes ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -261,10 +306,10 @@ namespace Part_7___ListBoxes
 
         #endregion
 
-        private System.Windows.Forms.ListBox lstNumbers;
         private System.Windows.Forms.ListBox lstHeroes;
+        private System.Windows.Forms.ListBox lstNumbers;
         private System.Windows.Forms.Button btnNewNumbers;
-        private System.Windows.Forms.Button btnSortNumbers;
+        private System.Windows.Forms.Button btnSortAscending;
         private System.Windows.Forms.Button btnNewHeroes;
         private System.Windows.Forms.Button btnSortHeroes;
         private System.Windows.Forms.Button btnRemoveNumber;
@@ -279,6 +324,9 @@ namespace Part_7___ListBoxes
         private System.Windows.Forms.Label lblNameAdder;
         private System.Windows.Forms.Label lblNameRemover;
         private System.Windows.Forms.Label lblNumberRemove;
+        private System.Windows.Forms.Button btnLower;
+        private System.Windows.Forms.Button btnSortDescending;
+        private System.Windows.Forms.Button btnUpper;
     }
 }
 
