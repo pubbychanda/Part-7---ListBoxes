@@ -1,9 +1,4 @@
-﻿////
-////THE PROGRAM CRASHES WHEN I REMOVE ALL NUMBERS FROM NUMBER LIST !!!
-////I ALSO NEED TO PROGRAM THE SORTING BUTTONS !!!
-////
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,12 +36,20 @@ namespace Part_7___ListBoxes
             heroes.Add("batman");
             lstHeroes.DataSource = heroes;
         }
-        private void btnSortNumbers_Click(object sender, EventArgs e)
+        private void btnSortAscending_Click(object sender, EventArgs e)
         {
             numbers.Sort();
             lstNumbers.DataSource = null;
             lstNumbers.DataSource = numbers;
-            lblStatus.Text = "Status: Numbers sorted.";
+            lblStatus.Text = "Status: Numbers sorted in ascending order.";
+        }
+        private void btnSortDescending_Click(object sender, EventArgs e)
+        {
+            numbers.Sort();
+            numbers.Reverse();
+            lstNumbers.DataSource = null;
+            lstNumbers.DataSource = numbers;
+            lblStatus.Text = "Status: Numbers sorted in descending order.";
         }
         private void btnSortHeroes_Click(object sender, EventArgs e)
         {
@@ -75,20 +78,31 @@ namespace Part_7___ListBoxes
         }
         private void btnRemoveNumber_Click(object sender, EventArgs e)
         {
-            removednumber = (Int32)lstNumbers.SelectedValue;
-            numbers.RemoveAt((Int32)lstNumbers.SelectedIndex);
-            lstNumbers.DataSource = null;
-            lstNumbers.DataSource = numbers;
-            lblStatus.Text = "Status: " + removednumber + " has been removed.";
+            if (lstNumbers.SelectedIndex != -1)
+            {
+                removednumber = (Int32)lstNumbers.SelectedValue;
+                numbers.RemoveAt((Int32)lstNumbers.SelectedIndex);
+                lstNumbers.DataSource = null;
+                lstNumbers.DataSource = numbers;
+                lblStatus.Text = "Status: " + removednumber + " has been removed.";
+            }
+            else
+                lblStatus.Text = "Status: No index selected.";
         }
         private void btnRemoveAllNumbers_Click(object sender, EventArgs e)
         {
-            removednumber = (Int32)lstNumbers.SelectedValue;
-            while (numbers.Remove(removednumber))
-                numbers.Remove(removednumber);
-            lstNumbers.DataSource = null;
-            lstNumbers.DataSource = numbers;
-            lblStatus.Text = "Status: " + removednumber + " has been removed.";
+            if (lstNumbers.SelectedIndex != -1)
+            {
+                removednumber = (Int32)lstNumbers.SelectedValue;
+                while (numbers.Remove(removednumber))
+                    numbers.Remove(removednumber);
+                lstNumbers.DataSource = null;
+                lstNumbers.DataSource = numbers;
+                lblStatus.Text = "Status: " + removednumber + " has been removed.";
+            }
+            else
+                lblStatus.Text = "Status: No index selected.";
+
         }
         private void btnRemoveHero_Click(object sender, EventArgs e)
         {
@@ -129,18 +143,22 @@ namespace Part_7___ListBoxes
                 lstHeroes.DataSource = heroes;
                 lblStatus.Text = "Status: '" + addedhero + "' has been successfully added.";
             }
-           
+        }
 
-
-
-
-
-
-
-
-
-
-
+        private void btnUpper_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < heroes.Count; i++)
+                heroes[i] = heroes[i].ToUpper();
+            lstHeroes.DataSource = null;
+            lstHeroes.DataSource = heroes;
+        }
+        private void btnLower_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < heroes.Count; i++)
+                heroes[i] = heroes[i].ToLower();
+            lstHeroes.DataSource = null;
+            lstHeroes.DataSource = heroes;
         }
     }
-}
+    }
+

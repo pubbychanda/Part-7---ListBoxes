@@ -90,7 +90,7 @@ namespace Part_7___ListBoxes
             this.btnSortAscending.TabIndex = 3;
             this.btnSortAscending.Text = "Sort Ascending";
             this.btnSortAscending.UseVisualStyleBackColor = false;
-            this.btnSortAscending.Click += new System.EventHandler(this.btnSortNumbers_Click);
+            this.btnSortAscending.Click += new System.EventHandler(this.btnSortAscending_Click);
             // 
             // btnNewHeroes
             // 
@@ -247,6 +247,7 @@ namespace Part_7___ListBoxes
             this.btnLower.TabIndex = 18;
             this.btnLower.Text = "lower case";
             this.btnLower.UseVisualStyleBackColor = false;
+            this.btnLower.Click += new System.EventHandler(this.btnLower_Click);
             // 
             // btnSortDescending
             // 
@@ -258,6 +259,7 @@ namespace Part_7___ListBoxes
             this.btnSortDescending.TabIndex = 19;
             this.btnSortDescending.Text = "Sort Descending ";
             this.btnSortDescending.UseVisualStyleBackColor = false;
+            this.btnSortDescending.Click += new System.EventHandler(this.btnSortDescending_Click);
             // 
             // btnUpper
             // 
@@ -269,6 +271,7 @@ namespace Part_7___ListBoxes
             this.btnUpper.TabIndex = 20;
             this.btnUpper.Text = "UPPER case";
             this.btnUpper.UseVisualStyleBackColor = false;
+            this.btnUpper.Click += new System.EventHandler(this.btnUpper_Click);
             // 
             // Form1
             // 
